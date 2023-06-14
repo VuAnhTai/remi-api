@@ -2,8 +2,6 @@
 /dist
 /node_modules
 
-README.md
-
 # env files
 .env
 
