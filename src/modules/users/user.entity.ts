@@ -1,4 +1,5 @@
 import { StatusEnum } from 'src/common/types';
+import { Exclude } from 'class-transformer';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -6,7 +7,9 @@ import {
   Unique,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
+import { SharedUrl } from '../sharedUrls/sharedUrl.entity';
 
 @Entity()
 @Unique(['email'])
@@ -24,10 +27,8 @@ export class User {
   email: string;
 
   @Column()
+  @Exclude()
   password: string;
-
-  @Column({ default: 0 })
-  amount: number;
 
   @CreateDateColumn()
   createdAt: Date;
@@ -37,4 +38,7 @@ export class User {
 
   @Column({ default: StatusEnum.ACTIVE })
   status: StatusEnum;
+
+  @OneToMany(() => SharedUrl, url => url.user)
+  urls: SharedUrl[];
 }

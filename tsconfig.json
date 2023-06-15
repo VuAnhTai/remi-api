@@ -22,6 +22,8 @@
       "@/config/*": ["src/config/*"],
       "@/auth/*": ["src/modules/auth/*"],
       "@/users/*": ["src/modules/users/*"],
+      "@/sharedUrls/*": ["src/modules/sharedUrls/*"],
+      "@/base/*": ["src/modules/base/*"],
       "@/database/*": ["src/modules/database/*"]
     }
   }
