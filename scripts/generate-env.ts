@@ -5,6 +5,7 @@ const envMap = {
   //App
   NODE_ENV: 'development',
   PORT: '4000',
+  PORT_SOCKET: '4001',
   //Database
   DB_TYPE: 'postgres',
   DB_HOST: 'localhost',

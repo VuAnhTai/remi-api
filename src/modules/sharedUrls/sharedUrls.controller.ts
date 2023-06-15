@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
-import { AuthGuard } from 'src/modules/auth/guard/auth.guard';
+import { AuthGuard } from '@/auth/guard/auth.guard';
 import { SharedUrlsService } from './sharedUrls.service';
 
 @Controller('shared-urls')

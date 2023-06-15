@@ -8,7 +8,8 @@ import databaseConfig from './database.config';
 
 const validationSchema = Joi.object({
   // App
-  PORT: Joi.number().default(3100),
+  PORT: Joi.number().default(4000),
+  PORT_SOCKET: Joi.number().default(4001),
   NODE_ENV: Joi.string().valid('development', 'production').default('development'),
 
   // Database

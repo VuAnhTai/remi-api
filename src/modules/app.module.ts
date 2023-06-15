@@ -7,6 +7,8 @@ import { APP_FILTER } from '@nestjs/core';
 import { HttpExceptionFilter } from 'src/filters/http-exception.filter';
 import { ClsModule } from 'nestjs-cls';
 import { SharedUrlsModule } from './sharedUrls/sharedUrls.module';
+import { EventEmitterModule } from '@nestjs/event-emitter';
+import { EventsModule } from './events/events.module';
 
 @Module({
   imports: [
@@ -19,6 +21,8 @@ import { SharedUrlsModule } from './sharedUrls/sharedUrls.module';
       global: true,
       middleware: { mount: true },
     }),
+    EventEmitterModule.forRoot(),
+    EventsModule,
   ],
   controllers: [],
   providers: [
