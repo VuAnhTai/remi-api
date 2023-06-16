@@ -1,0 +1,42 @@
+version: '3.1'
+
+services:
+  backend:
+    build: ./
+    container_name: remi_api
+    environment:
+      - PORT=3000
+      - DB_TYPE=postgres
+      - DB_HOST=remi_db
+      - DB_PORT=5432
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
+      - DB_DATABASE=remi
+      - JWT_EXPIRATION_TIME=30d
+      - JWT_SECRET=ba7b0fda2d6ca649ed5ce1f6cd47da2e7609c3915944608b35d79d5450fca62a8526b2e0e858d6a5
+      - SECRET_KEY=54811fc8e813283936bfd9255c1e8c0e278ea858
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/usr/src/app
+    depends_on:
+      - db
+    networks:
+      - remi-network
+  db:
+    image: postgres:13.1-alpine
+    container_name: remi_db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=remi
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    networks:
+      - remi-networki
+
+networks:
+  remi-network:
+    driver: bridge
