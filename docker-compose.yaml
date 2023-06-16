@@ -5,7 +5,7 @@ services:
     build: ./
     container_name: remi_api
     environment:
-      - PORT=3000
+      - PORT=4000
       - DB_TYPE=postgres
       - DB_HOST=remi_db
       - DB_PORT=5432
@@ -16,7 +16,7 @@ services:
       - JWT_SECRET=ba7b0fda2d6ca649ed5ce1f6cd47da2e7609c3915944608b35d79d5450fca62a8526b2e0e858d6a5
       - SECRET_KEY=54811fc8e813283936bfd9255c1e8c0e278ea858
     ports:
-      - 3000:3000
+      - 4000:4000
     depends_on:
       - db
     networks:

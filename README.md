@@ -1,3 +1,17 @@
+## Remi Backend
+
+- Youtube Video Sharing App
+
+## Description
+
+- Purpose: This project is to build a video sharing app like Youtube.
+- Overview: This project is built with NestJS, PostgreSQL, TypeORM, and Docker.
+- Key Feature:
+  - User can register, login, logout, and update profile.
+  - User can share video from Youtube by providing video link.
+  - User can like, dislike, comment, and reply to a video.
+  - Notification when someone shares a video.
+
 ## Prerequisites
 
 - Node >= 16
@@ -6,9 +20,15 @@
 We use framework NESTJS
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Database Setup
+## Run With Docker Compose
 
-You need to make sure that you have postgres running locally. You can use Docker to do this easily or you can also use homebrew.
+```bash
+docker-compose up -d
+```
+
+## Run Manually
+
+### Install postgres
 
 **docker**:
 
@@ -16,7 +36,21 @@ You need to make sure that you have postgres running locally. You can use Docker
 docker run -d  -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=password123 -e POSTGRES_DB=remi -p 5432:5432 --name docker-postgres postgres
 ```
 
-once you have postgres running locally you need to make sure that you have a
+**homebrew**:
+
+```bash
+brew install postgresql
+```
+
+Docker makes things easy because you can always tear down the container or stop it easily. Usually you will run into less issues than running postgres locally with brew.
+
+once you have postgres running locally you need to make sure that you have a database created for the app to use. You can do this by running the following command:
+
+```bash
+createdb remi
+```
+
+### Setup .env
 
 `.env` file with the following properties.
 
@@ -31,10 +65,6 @@ or
 $ npm install
 ```
 
-## Running the app
-
-Rename `.env.example` to `.env` and update all variables in this file
-
 ```bash
 # development
 $ npm run start
@@ -45,6 +75,8 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+
+Url: http://localhost:4000
 
 ## Test
 
