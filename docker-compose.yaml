@@ -17,8 +17,6 @@ services:
       - SECRET_KEY=54811fc8e813283936bfd9255c1e8c0e278ea858
     ports:
       - 3000:3000
-    volumes:
-      - ./:/usr/src/app
     depends_on:
       - db
     networks:
@@ -32,8 +30,6 @@ services:
       - POSTGRES_DB=remi
     ports:
       - 5432:5432
-    volumes:
-      - ./data:/var/lib/postgresql/data
     networks:
       - remi-network
 
