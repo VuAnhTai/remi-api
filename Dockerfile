@@ -9,6 +9,8 @@ RUN npm install
 
 COPY . .
 
+RUN npm run build
+
 #Prod Stage
 FROM node:16-alpine
 
