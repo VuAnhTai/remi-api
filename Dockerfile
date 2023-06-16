@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN yarn install
+RUN npm install
 
 COPY . .
 
@@ -21,11 +21,11 @@ COPY --from=build /usr/src/app/dist ./dist
 
 COPY package*.json ./
 
-RUN yarn install --only=production
+RUN npm install --only=production
 
 RUN rm package*.json
 
 EXPOSE 3000
 
-CMD ["node", "dist/main"]
+CMD ["node", "dist/src/main.js"]
 

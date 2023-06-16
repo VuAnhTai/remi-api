@@ -12,7 +12,7 @@ services:
       - DB_USERNAME=postgres
       - DB_PASSWORD=postgres
       - DB_DATABASE=remi
-      - JWT_EXPIRATION_TIME=30d
+      - JWT_EXPIRY_TIME=30d
       - JWT_SECRET=ba7b0fda2d6ca649ed5ce1f6cd47da2e7609c3915944608b35d79d5450fca62a8526b2e0e858d6a5
       - SECRET_KEY=54811fc8e813283936bfd9255c1e8c0e278ea858
     ports:
