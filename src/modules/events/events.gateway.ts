@@ -1,6 +1,4 @@
-import { AuthService } from '@/auth/auth.service';
 import { EVENT, EVENT_SOCKET } from '@/common/constants';
-import { SharedUrl } from '@/sharedUrls/sharedUrl.entity';
 import { UseFilters, UsePipes, ValidationPipe } from '@nestjs/common';
 import { OnEvent } from '@nestjs/event-emitter';
 import {
@@ -11,6 +9,7 @@ import {
 } from '@nestjs/websockets';
 import { Server, Socket } from 'socket.io';
 import { WebSocketExceptionFilter } from 'src/filters/ws-exception.filter';
+import { SharedUrl } from '@/modules/sharedUrls/sharedUrl.entity';
 
 @WebSocketGateway({
   cors: {

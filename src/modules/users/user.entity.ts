@@ -1,4 +1,4 @@
-import { StatusEnum } from 'src/common/types';
+import { StatusEnum } from '@/common/types';
 import { Exclude } from 'class-transformer';
 import {
   Entity,
@@ -9,7 +9,7 @@ import {
   UpdateDateColumn,
   OneToMany,
 } from 'typeorm';
-import { SharedUrl } from '../sharedUrls/sharedUrl.entity';
+import { SharedUrl } from '@/modules/sharedUrls/sharedUrl.entity';
 
 @Entity()
 @Unique(['email'])

@@ -1,5 +1,5 @@
-import { Base } from '@/base/base.entity';
-import { User } from '@/users/user.entity';
+import { Base } from '@/modules/base/base.entity';
+import { User } from '@/modules/users/user.entity';
 import {
   Column,
   CreateDateColumn,

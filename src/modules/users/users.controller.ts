@@ -1,5 +1,4 @@
-import { Body, Controller, HttpException, HttpStatus, Patch, Req, UseGuards } from '@nestjs/common';
-import { AuthGuard } from '@/auth/guard/auth.guard';
+import { Controller } from '@nestjs/common';
 import { UsersService } from './users.service';
 
 @Controller('users')
