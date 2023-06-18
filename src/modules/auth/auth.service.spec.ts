@@ -95,15 +95,27 @@ describe('AuthService', () => {
     const email = userRequest.email;
     const password = userRequest.password;
 
-    beforeEach(() => {
+    it('should return a user', async () => {
       jest.spyOn(userRepo, 'findOne').mockResolvedValueOnce(userResponse);
       jest.spyOn(bcrypt, 'compare').mockResolvedValueOnce(true);
-    });
-
-    it('should return a user', async () => {
       const user = await service.validateUser(email, password);
       expect(user).toBeDefined();
       expect(user.email).toEqual(userResponse.email);
+    });
+
+    it('should return null if user does not exist', async () => {
+      jest.spyOn(userRepo, 'findOne').mockResolvedValueOnce(null);
+
+      const user = await service.validateUser(email, password);
+      expect(user).toBeNull();
+    });
+
+    it('should return null if password is incorrect', async () => {
+      jest.spyOn(userRepo, 'findOne').mockResolvedValueOnce(userResponse);
+      jest.spyOn(bcrypt, 'compare').mockResolvedValueOnce(false);
+
+      const user = await service.validateUser(email, password);
+      expect(user).toBeNull();
     });
   });
 
