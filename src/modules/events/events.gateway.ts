@@ -8,7 +8,7 @@ import {
   WebSocketGateway,
 } from '@nestjs/websockets';
 import { Server, Socket } from 'socket.io';
-import { WebSocketExceptionFilter } from 'src/filters/ws-exception.filter';
+import { WebSocketExceptionFilter } from '@/filters/ws-exception.filter';
 import { SharedUrl } from '@/modules/sharedUrls/sharedUrl.entity';
 
 @WebSocketGateway({

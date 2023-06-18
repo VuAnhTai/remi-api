@@ -5,12 +5,15 @@ import * as Joi from 'joi';
 import appConfig from './app.config';
 import authConfig from './auth.config';
 import databaseConfig from './database.config';
+import { EnvType } from './app.enum';
 
 const validationSchema = Joi.object({
   // App
   PORT: Joi.number().default(4000),
   PORT_SOCKET: Joi.number().default(4001),
-  NODE_ENV: Joi.string().valid('development', 'production').default('development'),
+  NODE_ENV: Joi.string()
+    .valid(...Object.values(EnvType))
+    .default('development'),
 
   // Database
   DB_HOST: Joi.string().required(),
