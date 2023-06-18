@@ -15,7 +15,8 @@
 ## Prerequisites
 
 - Node >= 16
-- PostgreSQL (Or docker + docker-compose)
+- Docker
+- PostgreSQL
 
 We use framework NESTJS
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
