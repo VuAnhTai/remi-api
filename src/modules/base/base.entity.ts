@@ -8,8 +8,8 @@ export class Base {
   udpatetAt: Date;
 
   @Column({ nullable: false })
-  createdBy: string;
+  createdBy: number;
 
   @Column({ nullable: true })
-  updatedBy: string;
+  updatedBy: number;
 }

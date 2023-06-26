@@ -19,9 +19,9 @@ export class SharedUrlSubscriber implements EntitySubscriberInterface<SharedUrl>
   }
   beforeInsert(event: InsertEvent<SharedUrl>) {
     const user = this.cls.get(KEY_CLS.USER);
-    event.entity.createdBy = user.sub;
+    event.entity.createdBy = user.id;
     event.entity.user = {
-      id: user.sub,
+      id: user.id,
       email: user.email,
     };
   }

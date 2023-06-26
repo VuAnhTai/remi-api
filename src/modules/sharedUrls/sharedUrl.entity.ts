@@ -1,13 +1,6 @@
 import { Base } from '@/modules/base/base.entity';
 import { User } from '@/modules/users/user.entity';
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class SharedUrl extends Base {
@@ -22,12 +15,6 @@ export class SharedUrl extends Base {
 
   @Column()
   description: string;
-
-  @CreateDateColumn()
-  createdAt: Date;
-
-  @UpdateDateColumn()
-  udpatetAt: Date;
 
   @ManyToOne(() => User, (user: User) => user.urls)
   user: Partial<User>;

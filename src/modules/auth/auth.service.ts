@@ -21,7 +21,7 @@ export class AuthService {
   }
 
   generateToken(user: User): string {
-    const payload = { email: user.email, sub: user.id };
+    const payload = { email: user.email, id: user.id };
     const token = this.jwtService.sign(payload);
     return token;
   }
@@ -52,5 +52,15 @@ export class AuthService {
     }
 
     return user;
+  }
+
+  async validateToken(token: string): Promise<User | null> {
+    try {
+      const payload = this.jwtService.verify(token);
+      const user = await this.userRepository.findOne({ where: { id: payload.id } });
+      return user;
+    } catch (error) {
+      throw new Error(error);
+    }
   }
 }
